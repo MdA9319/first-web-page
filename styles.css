@@ -1,51 +1,151 @@
-/* General page styles */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background-color: #f9f9f9;
+
+
+/* ========== Base / Theme ========== */
+:root{
+  --bg:#111418;
+  --panel:#1a1f24;
+  --text:#f3f5f7;
+  --muted:#b9c0c7;
+  --brand:#3498db;      /* blue */
+  --brand-2:#2ecc71;    /* green */
 }
 
-/* Header styles */
-header {
-  background-color: white;
-  text-align: center;
-  padding: 20px;
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font:16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Arial, sans-serif;
 }
 
-header h1 {
-  color: #333;
+/* ========== Header / Hero ========== */
+header{
+  background:linear-gradient(180deg, #0f1114 0%, #12161b 100%);
+  border-bottom:1px solid #20262c;
+  padding:24px 16px 12px;
 }
 
-header img {
-  width: 150px;
-  display: block;
-  margin: 10px auto;
+header h1{
+  margin:0 0 8px;
+  font-size:clamp(24px, 3vw, 34px);
+  letter-spacing:.5px;
+  color:var(--text);
 }
 
-nav a {
-  display: inline-block;
-  margin: 5px 10px;
-  padding: 8px 12px;
-  background-color: #0066cc;
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
+header img{
+  display:block;
+  max-width:180px;     /* keeps your logo/promo image tidy */
+  width:100%;
+  height:auto;
+  margin:12px 0 0;
+  border-radius:8px;
 }
 
-nav a:hover {
-  background-color: #004999;
+/* ========== Navigation ========== */
+nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  align-items:center;
+  margin-top:8px;
 }
 
-/* Section colors */
-.yellow { background-color: #fff3cd; padding: 15px; }
-.green { background-color: #d4edda; padding: 15px; }
-.pink { background-color: #f8d7da; padding: 15px; }
-.white { background-color: #fefefe; padding: 15px; }
+nav a{
+  text-decoration:none;
+  color:var(--text);
+  padding:8px 12px;
+  border:1px solid #26303a;
+  border-radius:8px;
+  transition:transform .12s ease, background .2s ease, color .2s ease;
+}
 
-/* Footer */
-footer {
-  background-color: #eee;
-  text-align: center;
-  padding: 15px;
-  font-style: italic;
+nav a:hover{ 
+  background:var(--brand);
+  color:#fff;
+  transform:translateY(-1px);
+}
+
+/* ========== Main Layout ========== */
+main{
+  max-width:980px;
+  margin:0 auto;
+  padding:28px 16px 60px;
+}
+
+section{
+  background:var(--panel);
+  border:1px solid #2a333c;
+  border-radius:12px;
+  padding:20px;
+  margin:18px 0 22px;
+  box-shadow:0 6px 18px rgba(0,0,0,.25);
+}
+
+section h2{
+  margin:0 0 10px;
+  font-size:clamp(20px, 2.4vw, 28px);
+  color:var(--brand);
+}
+
+section p{ margin:8px 0 10px; }
+
+strong{ color:#fff; }
+
+/* Callouts / tips list (use <ul>) */
+ul, ol{ padding-left:22px; }
+li{ margin:6px 0; }
+
+/* ========== Helpful elements ========== */
+a{ color:var(--brand); }
+a:hover{ color:#79c2f1; }
+
+button, .btn{
+  display:inline-block;
+  background:var(--brand-2);
+  color:#061016;
+  border:none;
+  padding:10px 16px;
+  border-radius:8px;
+  font-weight:600;
+  cursor:pointer;
+  transition:filter .15s ease, transform .12s ease;
+}
+button:hover, .btn:hover{ filter:brightness(.95); transform:translateY(-1px); }
+
+/* Images inside sections */
+section img{
+  max-width:100%;
+  height:auto;
+  display:block;
+  border-radius:10px;
+  margin:8px 0 4px;
+  border:1px solid #2c353d;
+}
+
+/* Code blocks */
+pre, code{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  background:#0f1216;
+  color:#e6edf3;
+  border:1px solid #2a333c;
+  border-radius:8px;
+}
+pre{ padding:12px; overflow:auto; }
+code{ padding:2px 6px; border-radius:6px; }
+
+/* ========== Footer ========== */
+footer{
+  text-align:center;
+  color:var(--muted);
+  padding:20px 16px 40px;
+}
+
+/* ========== Small screens ========== */
+@media (max-width:640px){
+  nav{ gap:8px; }
+  nav a{ padding:8px 10px; }
+  section{ padding:16px; }
 }
